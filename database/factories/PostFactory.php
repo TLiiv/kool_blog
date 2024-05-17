@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +19,9 @@ class PostFactory extends Factory
     {
         return [
            'title'=>fake()->sentence(),
-           'body'=>fake()->paragraphs(6, true)
+           'body'=>fake()->paragraphs(6, true),
+           'published_at' => now(),
+            'user_id' => User::factory(),
         ];
     }
 }
